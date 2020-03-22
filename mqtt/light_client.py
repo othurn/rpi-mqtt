@@ -4,16 +4,16 @@ import json
 
 # Server (broker) settings
 
-broker = "192.168.0.24" # rpi
+broker = "192.168.0.19" # rpi
 # broker = "localhost"
 port = 1883 #port
 
 def on_connect(client, userdata, flags, rc):
-    livingroom_lights = '/lights/living_room'
+    livingroom = '/lights/living_room'
     light_one = '/lights/living_room/light1'
     if rc == 0:
         print('light sub to new topic')  
-        client.subscribe([(livingroom_lights,0) (topic_bedroom_light, 0)])
+        client.subscribe([(livingroom, 0), (light_one, 0)])
         
 
 def on_message(client, userdata, msg):

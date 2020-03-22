@@ -1,7 +1,7 @@
 import paho.mqtt.client as mqtt
 # Server (broker) settings
 
-broker = "192.168.0.24" # rpi
+broker = "192.168.0.19" # rpi
 # broker = "localhost"
 port = 1883 #port
 # Callback when we connect to the broker

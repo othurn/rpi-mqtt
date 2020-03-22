@@ -1,7 +1,7 @@
 import paho.mqtt.client as mqtt
 import time
 
-broker = "192.168.0.24"
+broker = "192.168.0.19"
 # broker = "localhost"  # change host name for network connections
 port = 1883
 topics = ["/demo/topic", "/something/new", "/moves", 
