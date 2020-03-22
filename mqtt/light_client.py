@@ -23,13 +23,13 @@ def on_message(client, userdata, msg):
     print("rec message light") 
     
     if topic == '/lights/living_room':
-        print(topic)    
+        print("Living Room lights: ON")    
     elif topic == '/lights/living_room/light1':
-        print(topic)
+        print("Light one: OFF")
+
         
 client = mqtt.Client("Living_Room_Lights")
 client.connect(broker, port)
 client.on_connect = on_connect
 client.on_message = on_message
-
 client.loop_forever()

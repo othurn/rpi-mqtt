@@ -20,15 +20,7 @@ def on_message(client, userdata, msg):
 # publish callback
 def on_publish(client, userdata, results):
     # sending some dummy data
-    for topic in topics:
-        
-        message = "Publisher publised to topic %s" % topic  
-    
-        # set retain to true if the broker should wait for a subscriber to be listening
-        ret = client.publish(topic, message, qos=0, retain=True)
-        time.sleep(0.5)
-    
-    print("fin")        
+    print("pub_client")       
     
 client = mqtt.Client("Publisher")
 client.connect(broker, port)
@@ -36,6 +28,8 @@ client.on_publish = on_publish
 client.on_connect = on_connect
 client.message_callback_add("/publisher/topic1", on_message)
 
+mesage = "topic from publisher"
+client.publish('/lights/living_room', mesage, 0)
 
 client.loop_forever()
 
