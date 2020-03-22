@@ -1,14 +1,15 @@
 import paho.mqtt.client as mqtt
 import time
 
-broker = "localhost"  # change host name for network connections
+broker = "192.168.0.24"
+# broker = "localhost"  # change host name for network connections
 port = 1883
 topics = ["/demo/topic", "/something/new", "/moves", "/dif/topic2", "/dif/topic1"]
 
 def on_connect(client, userdata, flags, rc):
     topic = "/publisher/topic1"
     if rc == 0:
-        print("publisher is now listening also")
+        print("publish")
         client.subscribe(topic, 0)
     
 def on_message(client, userdata, msg):
@@ -17,7 +18,8 @@ def on_message(client, userdata, msg):
 
 # publish callback
 def on_publish(client, userdata, results):
-    print("Publisher : Data published")
+    print("Publisher : on_publish")
+    print(results)
     
 client = mqtt.Client("Publisher")
 client.on_publish = on_publish
@@ -29,7 +31,7 @@ client.connect(broker, port)
 # sending some dummy data
 for topic in topics:
         
-    message = "Published Data to %s" % topic
+    message = "Publisher publised to topic %s" % topic
     
     # set retain to true if the broker should wait for a subscriber to be listening
     ret = client.publish(topic, message, qos=0, retain=True)

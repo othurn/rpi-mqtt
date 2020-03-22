@@ -1,6 +1,8 @@
 import paho.mqtt.client as mqtt
 # Server (broker) settings
-broker = "localhost" #hostname
+
+broker = "192.168.0.24" # rpi
+# broker = "localhost"
 port = 1883 #port
 # Callback when we connect to the broker
 
@@ -21,12 +23,13 @@ def on_connect(client, userdata, flags, rc):
     topic1 = "/something/new"
     topic2 = "/moves"
     if rc == 0:
-        print("Successfully Connected As SUBSCRIBER. Listening...")
+        print("Subscribed to: /demo/topic , /something/new , /moves")
         client.subscribe([(topic,0),(topic1, 0),(topic2, 0)])
 
 # Callback whenever we receive a message from the broker
 def on_message(client, userdata, msg):
     received = msg.payload.decode()
+    print("sub_client message received")
     print(received)
     
     
@@ -37,6 +40,6 @@ client.on_connect = on_connect
 client.on_message = on_message
 client.loop_forever()
 
-# Subscriber and publisher ... has 2 different topics is is subscribes to and then publishes back to the pub_client. 
+# Subscriber and publisher ... has 2 different topics is subscribes to and then publishes back to the pub_client. 
 # you can treat the on_whatever callbacks as the main operations and then loop for ever.
 # havent figure out any other loop start or stop functions

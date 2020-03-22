@@ -15,8 +15,8 @@ def on_connect(client, userdata, flags, rc):
 def on_topic1(client, userdata, msg):
     rec = msg.payload.decode()
     
-    message = "back to the publisher"
-    print("reacting to topic1")
+    message = "From: /dif/topic1 , Hello"
+    print("/dif/topic1")
     print(rec)
     
     # the retain tells the broker to keep this message around for the next time the subscriber is available.
@@ -26,7 +26,6 @@ def on_publish(client, userdata, results):
     print("dif published")
     
 def on_message(client, userdata, msg):
-    
     received = msg.payload.decode()
     print(received)
     
