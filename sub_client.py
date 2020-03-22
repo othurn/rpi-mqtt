@@ -21,10 +21,11 @@ sub_topics = [(consensus, 0), (start_point, 0)]
 def on_connect(client, userdata, flags, rc):
     topic = "/demo/topic"
     topic1 = "/something/new"
-    topic2 = "/moves"
+    topic2 = "/light_bulp"
+    topic_bedroom_light = "/lights/bedroom"
     if rc == 0:
         print("Subscribed to: /demo/topic , /something/new , /moves")
-        client.subscribe([(topic,0),(topic1, 0),(topic2, 0)])
+        client.subscribe([(topic,0),(topic1, 0),(topic2, 0), (topic_bedroom_light, 0)])
 
 # Callback whenever we receive a message from the broker
 def on_message(client, userdata, msg):
