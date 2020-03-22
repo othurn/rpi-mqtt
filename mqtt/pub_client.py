@@ -29,7 +29,7 @@ client.on_connect = on_connect
 client.message_callback_add("/publisher/topic1", on_message)
 
 mesage = "topic from publisher"
-client.publish('/lights/living_room', mesage, 0)
+client.publish('/lights/living_room/light1', mesage, 0)
 
 client.loop_forever()
 
