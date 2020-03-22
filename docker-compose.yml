@@ -1,7 +1,7 @@
 version: "3"
 services:
   mqtt:
-    image: toke/mosquitto
+    image: arm32v6/eclipse-mosquitto
     restart: unless-stopped
     container_name: "MQTT"
     ports:
