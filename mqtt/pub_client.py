@@ -4,7 +4,8 @@ import time
 broker = "192.168.0.24"
 # broker = "localhost"  # change host name for network connections
 port = 1883
-topics = ["/demo/topic", "/something/new", "/moves", "/lights/living_room", "/lights/living_room/light1"]
+topics = ["/demo/topic", "/something/new", "/moves", 
+          "/lights/living_room", "/lights/living_room/light1"]
 
 def on_connect(client, userdata, flags, rc):
     topic = "/publisher/topic1"
@@ -30,10 +31,11 @@ def on_publish(client, userdata, results):
     print("fin")        
     
 client = mqtt.Client("Publisher")
+client.connect(broker, port)
 client.on_publish = on_publish
 client.on_connect = on_connect
 client.message_callback_add("/publisher/topic1", on_message)
-client.connect(broker, port)
+
 
 client.loop_forever()
 
