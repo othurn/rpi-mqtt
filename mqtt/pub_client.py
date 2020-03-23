@@ -33,5 +33,6 @@ client.publish('/lights/living_room/light1', mesage, 0)
 
 client.loop_forever()
 
+
 # This publisher sends out a series of messages to all of its known topics, then goes into a state of waiting for some where else to publish to it. The only way this works is if I loop forever.
 # I wonder if we can just react to messages back in forth in different message_callback_add functions. We would control the robot through fucntion calls when certain messages are recieved.

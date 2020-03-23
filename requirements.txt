@@ -1,1 +1,2 @@
-pip install RPi.GPIO
+pip3 install RPi.GPIO
+pip3 install paho-mqtt python-etcd

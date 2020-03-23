@@ -9,3 +9,12 @@ services:
       - 9001:9001
     expose:
       - 1883
+  
+  ui:
+    build:
+      context: ./ui_server   
+    ports:
+      - 5001:5001
+    volumes:
+      - ./ui_server/sources:/app
+    container_name: basic_ui
