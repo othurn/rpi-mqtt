@@ -12,9 +12,9 @@ services:
   
   ui:
     build:
-      context: ./ui_server   
+      context: ./web   
     ports:
-      - 5001:5001
+      - 5050:5050
     volumes:
-      - ./ui_server/sources:/app
-    container_name: basic_ui
+      - ./web/sources:/app
+    container_name: web_server
