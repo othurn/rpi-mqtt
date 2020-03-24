@@ -1,4 +1,5 @@
 # Unique manager for Zero One rpi
+from hardware.libraries.DHT22 import DHT22
 
 import paho.mqtt.client as mqtt
 import re
@@ -14,6 +15,9 @@ port = 1883  # port
 pin = 18
 GPIO.setmode(GPIO.BCM)
 GPIO.setup(pin, GPIO.IN)
+
+dht_pin = 16
+dht22 = DHT22.DHT22(dht_pin)
 
 sub_topics = ['/Zero_1/test']
 pub_topics = ['base/test/z1']
@@ -31,18 +35,26 @@ def cust_on_message(client, userdata, msg):
 
 def sub_test():
     client.subscribe('/Zero_1/test')
+    client.subscribe('/bedroom/client/temp_hum')
 
 def cust_on_publish(client, userdata, msg):
     print('Zero_1 published')
 
 def loop():
-    while True:
-        if GPIO.input(pin) == GPIO.HIGH:
-            message = 'Motion Detected - Zero_1'
-            client.publish('/base/test', message, 0)
-            time.sleep(1)
-        else:
-            time.sleep(0.5)
+    counter = 0
+    # while True:
+    while counter < 5:
+        hum, temp = dht22.get_temperature_and_humidity()
+        print('Humidity: %s, Temp: %s', hum, temp)
+        data = {
+            'humidity': hum, 
+            'temperature': temp
+        }
+        
+        client.publish('/bedroom/client', data)
+        counter = counter + 1
+        time.sleep(5)
+        
 
 client = mqtt.Client("Zero-One-24")
 client.connect(broker, port)

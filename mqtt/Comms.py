@@ -1,6 +1,9 @@
 import paho.mqtt.client as mqtt
 import json
 
+BROKER = '192.168.0.24'
+PORT = 1883
+
 class Communication:
     
     def __init__(self, client_name):
@@ -8,20 +11,16 @@ class Communication:
         
         self.publisher = mqtt.Client(f'{client_name}_publisher')
         self.subscriber = mqtt.Client(f'{client_name}_subscriber')
-        
-        self.publisher.connect('192.168.0.24')
-        self.subscriber.connect('192.168.0.24')
+        self.publisher.connect(BROKER, PORT)
+        self.subscriber.connect(BROKER, PORT)
         self.publisher.loop_start()
         self.subscriber.loop_start()
         
         
-    def subscribe_all(self):
-        
-        self.subscriber.subscribe('/class_topic')
-        
+    def subscribe_all(self): 
+        self.subscriber.subscribe('/class_topic')    
     
     def publish_all(self):
-        
         self.publish_test()
         
         
