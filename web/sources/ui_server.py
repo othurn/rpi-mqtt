@@ -7,7 +7,7 @@ import json
 import os
 
 def get_home(req):
-    return render_to_response('templates/home.html', {'working': 'working'}, request=req)
+    return render_to_response('templates/upgraded_home.html', {'working': 'working'}, request=req)
 
 def get_data(req):
     return render_to_response('templates/data.html', {}, request=req)

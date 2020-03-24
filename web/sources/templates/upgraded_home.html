@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Home Network</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+</head>
+
+<body class="w3-light-grey">
+
+
+    <nav class="navbar navbar-inverse">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <a class="navbar-brand" href="#">Welcome to Base</a>
+            </div>
+            <ul class="nav navbar-nav">
+                <li class="active"><a href="#">Home</a></li>
+                <li><a href="#">Control</a></li>
+                <li><a href="/data">Data</a></li>
+            </ul>
+            <form class="navbar-form navbar-left" action="/action_page.php">
+                <div class="form-group">
+                    <input type="text" class="form-control" placeholder="Search" name="search">
+                </div>
+                <button type="submit" class="btn btn-default">Submit</button>
+            </form>
+        </div>
+    </nav>
+
+    <div class="w3-row-padding w3-margin-bottom">
+        <div class="w3-quarter">
+            <div class="w3-container w3-red w3-padding-16">
+                <div class="w3-left"><i class="fa fa-comment w3-xxxlarge"></i></div>
+                <div class="w3-right">
+                    <h3>52</h3>
+                </div>
+                <div class="w3-clear"></div>
+                <h4>Messages</h4>
+            </div>
+        </div>
+        <div class="w3-quarter">
+            <div class="w3-container w3-blue w3-padding-16">
+                <div class="w3-left"><i class="fa fa-eye w3-xxxlarge"></i></div>
+                <div class="w3-right">
+                    <h3>99</h3>
+                </div>
+                <div class="w3-clear"></div>
+                <h4>Views</h4>
+            </div>
+        </div>
+        <div class="w3-quarter">
+            <div class="w3-container w3-teal w3-padding-16">
+                <div class="w3-left"><i class="fa fa-share-alt w3-xxxlarge"></i></div>
+                <div class="w3-right">
+                    <h3>23</h3>
+                </div>
+                <div class="w3-clear"></div>
+                <h4>Shares</h4>
+            </div>
+        </div>
+        <div class="w3-quarter">
+            <div class="w3-container w3-orange w3-text-white w3-padding-16">
+                <div class="w3-left"><i class="fa fa-users w3-xxxlarge"></i></div>
+                <div class="w3-right">
+                    <h3>50</h3>
+                </div>
+                <div class="w3-clear"></div>
+                <h4>Users</h4>
+            </div>
+        </div>
+    </div>
+
+    <!-- middle pannel -->
+
+    <div class="w3-panel">
+        <div class="w3-row-padding" style="margin:0 -16px">
+            <div class="w3-third">
+                <div class="w3-container">
+                    <h5>General Stats</h5>
+                    <p>New Visitors</p>
+                    <div class="w3-grey">
+                        <div class="w3-container w3-center w3-padding w3-green" style="width:25%">+25%</div>
+                    </div>
+
+                    <p>New Users</p>
+                    <div class="w3-grey">
+                        <div class="w3-container w3-center w3-padding w3-orange" style="width:50%">50%</div>
+                    </div>
+
+                    <p>Bounce Rate</p>
+                    <div class="w3-grey">
+                        <div class="w3-container w3-center w3-padding w3-red" style="width:75%">75%</div>
+                    </div>
+                </div>
+            </div>
+            <div class="w3-twothird">
+                <h5>Feeds</h5>
+                <table class="w3-table w3-striped w3-white">
+                    <tr>
+                        <td><i class="fa fa-user w3-text-blue w3-large"></i></td>
+                        <td>New record, over 90 views.</td>
+                        <td><i>10 mins</i></td>
+                    </tr>
+                    <tr>
+                        <td><i class="fa fa-bell w3-text-red w3-large"></i></td>
+                        <td>Database error.</td>
+                        <td><i>15 mins</i></td>
+                    </tr>
+                    <tr>
+                        <td><i class="fa fa-users w3-text-yellow w3-large"></i></td>
+                        <td>New record, over 40 users.</td>
+                        <td><i>17 mins</i></td>
+                    </tr>
+                    <tr>
+                        <td><i class="fa fa-comment w3-text-red w3-large"></i></td>
+                        <td>New comments.</td>
+                        <td><i>25 mins</i></td>
+                    </tr>
+                    <tr>
+                        <td><i class="fa fa-bookmark w3-text-blue w3-large"></i></td>
+                        <td>Check transactions.</td>
+                        <td><i>28 mins</i></td>
+                    </tr>
+                    <tr>
+                        <td><i class="fa fa-laptop w3-text-red w3-large"></i></td>
+                        <td>CPU overload.</td>
+                        <td><i>35 mins</i></td>
+                    </tr>
+                    <tr>
+                        <td><i class="fa fa-share-alt w3-text-green w3-large"></i></td>
+                        <td>New shares.</td>
+                        <td><i>39 mins</i></td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <!-- basic settings -->
+
+    <div class="w3-row-padding">
+        <div class="w3-quarter">
+            <div class="w3-container w3-red w3-padding-24">
+                <div class="w3-left">3 New</i></div>
+                <div class="w3-right">
+                    <h3>52 unread</h3>
+                </div>
+                <div class="w3-clear"></div>
+                <h4>Living Room</h4>
+            </div>
+        </div>
+        <div class="w3-quarter">
+            <div class="w3-container w3-blue w3-padding-24">
+                <div class="w3-left">1 New</i></div>
+                <div class="w3-right">
+                    <h3>99 unread</h3>
+                </div>
+                <div class="w3-clear"></div>
+                <h4>Bed Room</h4>
+            </div>
+        </div>
+        <div class="w3-quarter">
+            <div class="w3-container w3-teal w3-padding-24">
+                <div class="w3-left">
+                    <h3>0 New</h3>
+                </div>
+                <div class="w3-right">
+                    <h3>23</h3>
+                </div>
+                <div class="w3-clear"></div>
+                <h4>Lights</h4>
+            </div>
+        </div>
+        <div class="w3-quarter">
+            <div class="w3-container w3-orange w3-text-white w3-padding-24">
+                <div class="w3-left">
+                    <h3>10 New</h3>
+                </div>
+                <div class="w3-right">
+                    <h3>50 Unread</h3>
+                </div>
+                <div class="w3-clear"></div>
+                <h4>Motion</h4>
+            </div>
+        </div>
+    </div>
+
+    
+</body>
+
+
+
+</html>

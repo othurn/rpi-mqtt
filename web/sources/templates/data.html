@@ -2,55 +2,136 @@
 <html>
 
 <head>
-    <title>Basic Stack</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" , type="text/css" , href="home.css">
-    <!-- Latest compiled and minified CSS -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
-    
-    <!-- jQuery library -->
+    <title>Hub Data</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-    
-    <!-- Popper JS -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
-    
-    <!-- Latest compiled JavaScript -->
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <script src="https://www.gstatic.com/charts/loader.js"></script>
 
 </head>
 
-<body>
+<body class="w3-light-grey">
 
-    <div class="topnav">
-        <a href="#home">Home</a>
-        <a class="active" href="/data">Data</a>
-        <a href="#contact">Info</a>
-        <a href="#about">About</a>
-    </div>
+    <nav class="navbar navbar-inverse">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <a class="navbar-brand" href="#">Welcome to Base</a>
+            </div>
+            <ul class="nav navbar-nav">
+                <li class="active"><a href="#">Home</a></li>
+                <li><a href="#">Control</a></li>
+                <li><a href="#">Data</a></li>
+            </ul>
+            <form class="navbar-form navbar-left" action="/action_page.php">
+                <div class="form-group">
+                    <input type="text" class="form-control" placeholder="Search" name="search">
+                </div>
+                <button type="submit" class="btn btn-default">Submit</button>
+            </form>
+        </div>
+    </nav>
 
-    <div class="jumbotron text-center">
-        <h1>Data Page</h1>
-        <p>Resize this responsive page to see the effect!</p>
-    </div>
-    
-    <div class="container">
-        <div class="row">
-            <div class="col-sm-4">
-                <h3>Column 1</h3>
-                <p>Lorem ipsum dolor..</p>
+    <div class="w3-row-padding w3-margin-bottom">
+        <div class="w3-quarter">
+            <div class="w3-container w3-clear w3-padding-48">
+                <div id="myChart1" style="width: 200px; height: 200px;"></div>
             </div>
-            <div class="col-sm-4">
-                <h3>Column 2</h3>
-                <p>Lorem ipsum dolor..</p>
+        </div>
+        <div class="w3-quarter">
+            <div class="w3-container w3-clear w3-padding-48">
+                <div id="myChart2" style="width: 200px; height: 200px;"></div>
             </div>
-            <div class="col-sm-4">
-                <h3>Column 3</h3>
-                <p>Lorem ipsum dolor..</p>
+        </div>
+        <div class="w3-quarter">
+            <div class="w3-container w3-clear w3-padding-48">
+                <div id="doughnutChart" style="width: 200px; height: 200px;"></div>
+            </div>
+        </div>
+        <div class="w3-quarter">
+            <div class="w3-container w3-clear w3-padding-48">
+                <div id="myChart" style="width: 200px; height: 200px;"></div>
             </div>
         </div>
     </div>
 
 
+    <!-- body scripts  -->
+    <script>
+        google.charts.load('current', { 'packages': ['corechart'] });
+            // doughnut chart
+            google.charts.setOnLoadCallback(drawDoughnutChart);
+            function drawDoughnutChart() {
+                console.log("in function chart.js")
+                var data = google.visualization.arrayToDataTable([
+                    ['Task', 'Hours per Day'],
+                    ['Work', 11],
+                    ['Eat', 2],
+                    ['Commute', 2],
+                    ['Watch TV', 2],
+                    ['Sleep', 7]
+                ]);
+                var options = {
+                    title: 'My Daily Activities',
+                    pieHole: 0.4,
+                };
+                var chart = new google.visualization.PieChart(document.getElementById('doughnutChart'));
+                chart.draw(data, options);
+            }
+            // pie chart
+            google.charts.setOnLoadCallback(drawPieChart);
+            function drawPieChart() {
+                var data = google.visualization.arrayToDataTable([
+                    ['Task', 'Hours per Day'],
+                    ['Work', 11],
+                    ['Eat', 2],
+                    ['Commute', 2],
+                    ['Watch TV', 2],
+                    ['Sleep', 7]
+                ]);
+                var options = {
+                    title: 'My Daily Activities'
+                };
+                var chart = new google.visualization.PieChart(document.getElementById('myChart'));
+                chart.draw(data, options);
+            }
+            google.charts.setOnLoadCallback(drawPieChart1);
+                function drawPieChart1() {
+                    var data = google.visualization.arrayToDataTable([
+                        ['Task', 'Hours per Day'],
+                        ['Work', 11],
+                        ['Eat', 2],
+                        ['Commute', 2],
+                        ['Watch TV', 2],
+                        ['Sleep', 7]
+                    ]);
+                    var options = {
+                        title: 'My Daily Activities'
+                    };
+                    var chart = new google.visualization.PieChart(document.getElementById('myChart1'));
+                    chart.draw(data, options);
+                }
+            google.charts.setOnLoadCallback(drawPieChart2);
+                function drawPieChart2() {
+                    var data = google.visualization.arrayToDataTable([
+                        ['Task', 'Hours per Day'],
+                        ['Work', 11],
+                        ['Eat', 2],
+                        ['Commute', 2],
+                        ['Watch TV', 2],
+                        ['Sleep', 7]
+                    ]);
+                    var options = {
+                        title: 'My Daily Activities'
+                    };
+                    var chart = new google.visualization.PieChart(document.getElementById('myChart2'));
+                    chart.draw(data, options);
+                }
+    </script>
 </body>
 
 </html>
