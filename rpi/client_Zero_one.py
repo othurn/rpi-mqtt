@@ -1,5 +1,5 @@
 # Unique manager for Zero One rpi
-from hardware.libraries.DHT22 import DHT22
+from libraries.DHT22 import DHT22
 
 import paho.mqtt.client as mqtt
 import re
@@ -10,10 +10,6 @@ import time
 broker = "192.168.0.19"  # rpi
 # broker = "localhost"
 port = 1883  # port
-
-pin = 18
-GPIO.setmode(GPIO.BCM)
-GPIO.setup(pin, GPIO.IN)
 
 dht_pin = 16
 dht22 = DHT22(dht_pin)
