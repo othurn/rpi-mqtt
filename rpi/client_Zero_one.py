@@ -4,7 +4,6 @@ from hardware.libraries.DHT22 import DHT22
 import paho.mqtt.client as mqtt
 import re
 import json
-import RPi.GPIO as GPIO
 import time
 # Server (broker) settings
 
@@ -17,7 +16,7 @@ GPIO.setmode(GPIO.BCM)
 GPIO.setup(pin, GPIO.IN)
 
 dht_pin = 16
-dht22 = DHT22.DHT22(dht_pin)
+dht22 = DHT22(dht_pin)
 
 sub_topics = ['/Zero_1/test']
 pub_topics = ['base/test/z1']

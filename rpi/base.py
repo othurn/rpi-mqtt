@@ -1,7 +1,5 @@
 # Unique manager for Model 2B rpi
 
-from hardware.libraries.DHT22 import DHT22
-
 import paho.mqtt.client as mqtt
 import re
 import json
