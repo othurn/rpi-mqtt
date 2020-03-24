@@ -18,3 +18,21 @@ services:
     volumes:
       - ./web/sources:/app
     container_name: web_server
+
+  rest:
+    build:
+      context: ./rest_server
+    ports:
+      - 7071:7070
+    volumes:
+      - ./rest_server/src:/app
+
+  rest_ui:
+    build:
+      context: ./rest_ui
+    environment:
+      - REST_SERVER=http://rest:7070
+    ports:
+      - 7070:7070
+    volumes:
+      - ./rest_ui/src:/app
