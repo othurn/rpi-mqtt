@@ -9,7 +9,7 @@ import time
 
 BASE = "192.168.0.19"
 COMP = "192.168.0.10"
-broker =  COMP # rpi
+broker =  BASE # device 
 # broker = "localhost"
 port = 1883  # port
 
