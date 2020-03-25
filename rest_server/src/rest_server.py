@@ -72,8 +72,7 @@ if __name__ == '__main__':
   
   config.add_route('livingroom', '/livingroom')
   config.add_view(get_living_room, route_name='livingroom', renderer='json')
-  config.add_view(post_livingroom, route_name='livingroom', request_method="POST",
-                  renderer='json')
+  config.add_view(post_livingroom, route_name='livingroom',    request_method="POST", renderer='json')
 
 
   app = config.make_wsgi_app()

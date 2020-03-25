@@ -16,6 +16,7 @@ pub_topics = ['/Zero_1/test','/3A/test']
 
 def post_to_rest(payload):
     # data = {'title': 'fake title', 'author': 'fake author'}
+    print("post to rest")
     data = json.dumps(payload)
     requests.post('http://localhost:7071/bedroom/temp', data=data)
     requests.post('http://localhost:7071/livingroom', data=data)
