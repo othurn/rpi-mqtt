@@ -25,6 +25,7 @@ def post_to_rest(payload):
 def cust_on_connect(client, userdata, flags, rc):
     if rc == 0:
         client.subscribe('/base/test')
+        client.subscribe('/bedroom/client', 0)
 
 
 def cust_on_message(client, userdata, msg):
