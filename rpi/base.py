@@ -51,4 +51,4 @@ message = 'Hey from Base'
 for pub in pub_topics:
     client.publish(pub, message, 0)
 
-client.loop_start()
+client.loop_forever()
