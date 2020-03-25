@@ -47,7 +47,7 @@ def loop():
             'temperature': temp
         }
 
-        data = json.dumps(data)
+        # data = json.dumps(data)
         
         client.publish('/bedroom/client', data)
         counter = counter + 1
