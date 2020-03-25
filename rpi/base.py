@@ -18,7 +18,7 @@ def post_to_rest(payload):
     # data = {'title': 'fake title', 'author': 'fake author'}
     print("post to rest")
     data = json.dumps(payload)
-    requests.post('http://localhost:7070/bedroom/temp', data=data)
+    requests.post('http://localhost:7070/bedroom', data=data)
     requests.post('http://localhost:7070/livingroom', data=data)
     
 
