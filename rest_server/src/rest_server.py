@@ -2,8 +2,8 @@ from wsgiref.simple_server import make_server
 from pyramid.config import Configurator
 import json
 
-BED_ROOM = 'data/bedroom.json'
-LIVING_ROOM = 'data/livingroom.json'
+BED_ROOM = 'data/bedroom.txt'
+LIVING_ROOM = 'data/livingroom.txt'
 
 def open_json(file_path):
   with open(file_path, 'r') as db_file:
@@ -41,7 +41,7 @@ def post_bedroom(req):
   bedroom_json = json.dumps(bedroom)
   print(bedroom_json)
   print(type(bedroom_json))
-  f = open('data/bedroom.json', 'w') 
+  f = open('data/bedroom.txt', 'w') 
   f.write(bedroom_json)
   f.close()
   
@@ -55,7 +55,7 @@ def post_livingroom(req):
   living_room = open_json(LIVING_ROOM)
   living_room.append(payload)
   
-  with open('data/livingroom.json', 'w') as f:
+  with open('data/livingroom.txt', 'w') as f:
     f.write(json.dumps(living_room))
     f.close()
   
