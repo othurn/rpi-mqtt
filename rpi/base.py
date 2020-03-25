@@ -18,8 +18,8 @@ def post_to_rest(payload):
     # data = {'title': 'fake title', 'author': 'fake author'}
     print("post to rest")
     data = json.dumps(payload)
-    requests.post('http://localhost:7071/bedroom/temp', data=data)
-    requests.post('http://localhost:7071/livingroom', data=data)
+    requests.post('http://localhost:7070/bedroom/temp', data=data)
+    requests.post('http://localhost:7070/livingroom', data=data)
     
 
 
@@ -31,10 +31,10 @@ def cust_on_connect(client, userdata, flags, rc):
 
 def cust_on_message(client, userdata, msg):
     print('Message to base: ', msg.payload.decode())
-    post_to_rest(msg.payload)
     
     if msg.topic == '/bedroom/client':
-        print('Message: ', msg.payload.decode())
+        print('Message: ' + msg.payload.decode())
+        post_to_rest(msg.payload)
 
 
 def cust_on_publish(client, userdata, msg):
