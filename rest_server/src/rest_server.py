@@ -29,17 +29,18 @@ def post_bedroom(req):
   # confirm post req
   print('bedroom post accepted')
   text = req.text       # gets just the data that was sent
-  print(text)
+  print(type(text))
     
   bedroom = open_json(BED_ROOM)
   print(bedroom)
+  print(type(bedroom))
   
   bedroom.append(text)
   print(bedroom)
   
   bedroom_json = json.dumps(bedroom)
   print(bedroom_json)
-  
+  print(type(bedroom_json))
   f = open('data/bedroom.json', 'w') 
   f.write(bedroom_json)
   f.close()
