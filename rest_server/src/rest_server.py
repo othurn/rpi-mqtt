@@ -28,18 +28,19 @@ def get_living_room(req):
 def post_bedroom(req):
   # confirm post req
   print('bedroom post accepted')
-  text = json.load(req.text)       # gets just the data that was sent
+  text = json.loads(req.body)
+  text = json.loads(req.body)
+  text = json.loads(req.body)
+
+  print(type(req.body))
+  print(text)
   print(type(text))
     
   bedroom = open_json(BED_ROOM)
-  print(bedroom)
   print(type(bedroom))
   
   bedroom.append(text)
-  print(bedroom)
-  
   bedroom_json = json.dumps(bedroom)
-  print(bedroom_json)
   print(type(bedroom_json))
   f = open('data/bedroom.txt', 'w') 
   f.write(bedroom_json)
