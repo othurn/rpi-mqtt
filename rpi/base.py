@@ -14,12 +14,16 @@ port = 1883  # port
 sub_topics = ['/base/test']
 pub_topics = ['/Zero_1/test','/3A/test']
 
-def post_to_rest(payload):
+def post_to_livingroom(payload):
     # data = {'title': 'fake title', 'author': 'fake author'}
     print("post to rest")
     data = json.dumps(payload)
     requests.post('http://localhost:7070/bedroom', data=data)
+
+def post_to_bedroom(payload):
+    data = json.dumps(payload)
     requests.post('http://localhost:7070/livingroom', data=data)
+
     
 
 
@@ -27,6 +31,7 @@ def cust_on_connect(client, userdata, flags, rc):
     if rc == 0:
         client.subscribe('/base/test')
         client.subscribe('/bedroom/client', 0)
+        client.subscribe('/livingroom/client', 0)
 
 
 def cust_on_message(client, userdata, msg):
@@ -34,7 +39,12 @@ def cust_on_message(client, userdata, msg):
     
     if msg.topic == '/bedroom/client':
         print('Message: ' + msg.payload.decode())
-        post_to_rest(msg.payload)
+        post_to_bedroom(msg.payload)
+    
+    if msg.topic == '/livingroom/client':
+        print('Message: ' + msg.payload.decode())
+        post_to_livingroom(msg.payload)
+    
 
 
 def cust_on_publish(client, userdata, msg):
